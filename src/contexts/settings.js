@@ -10,6 +10,8 @@ export class SettingsProvider extends React.Component {
     constructor(props) {
         super(props);
 
+        console.log(props);
+
         this.state = {
             // TODO: figure out what state is
         };
