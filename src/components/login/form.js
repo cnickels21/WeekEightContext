@@ -1,24 +1,24 @@
 import React from 'react';
 import { useAuth } from '../../contexts/auth';
 
-export default function Login() {
-    const { login, logout } = useAuth();
+export default function Login(props) {
+    const context = useAuth();
 
-    handleSubmit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
         const { username, password } = e.target.elements;
-        this.context.login(username.value, password.value);
+        context.login(username.value, password.value);
     }
 
-    logoutSubmit = e => {
+    const logoutSubmit = e => {
         e.preventDefault();
-        this.context.logout();
+        context.logout();
     }
 
     return (
-        <form onSubmit={this.handleSubmit}>
-            <input placeholder="Username" name="username" />
-            <input placeholder="Password" type="password" name="password" />
+        <form onSubmit={handleSubmit}>
+            <input placeholder="Username" name={props.username} />
+            <input placeholder="Password" type="password" name={props.password} />
             <button>Log In</button>
         </form>
     )

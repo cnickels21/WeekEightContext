@@ -5,7 +5,7 @@ const usersAPI = 'https://deltav-todo-alpha.azurewebsites.net/api/v1/Users';
 
 export const AuthContext = React.createContext();
 
-export default function useAuth() {
+function useAuth() {
   return useContext(AuthContext);
 }
 
@@ -23,19 +23,21 @@ export function AuthProvider(props) {
         const body = await result.json();
 
         if (result.ok) {
-            this.setState({ user: body });
+            setState({ user: body });
         };
 
-        this.logout();
+        logout();
     }
 
     const logout = () => {
-        this.setState({ user: null });
+        setState({ user: null });
     }
 
     return (
-        <AuthContext.Provider value={this.state}>
-          {this.props.children}
+        <AuthContext.Provider value={state}>
+          {props.children}
         </AuthContext.Provider>
     );
 }
+
+export default useAuth;
