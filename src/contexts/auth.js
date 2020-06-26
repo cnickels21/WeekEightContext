@@ -26,6 +26,10 @@ export default function AuthProvider(props) {
             this.setState({ user: body });
         };
 
+        this.logout();
+    }
+
+    const logout = () => {
         this.setState({ user: null });
     }
 
