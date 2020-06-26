@@ -23,18 +23,18 @@ export function AuthProvider(props) {
         const body = await result.json();
 
         if (result.ok) {
-            setState({ user: body });
+            this.setState({ user: body });
         };
 
         logout();
     }
 
     const logout = () => {
-        setState({ user: null });
+        this.setState({ user: null });
     }
 
     return (
-        <AuthContext.Provider value={state}>
+        <AuthContext.Provider value={props}>
           {props.children}
         </AuthContext.Provider>
     );
