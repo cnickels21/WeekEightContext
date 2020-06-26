@@ -9,7 +9,7 @@ export default function useAuth() {
   return useContext(AuthContext);
 }
 
-export default function AuthProvider(props) {
+export function AuthProvider(props) {
 
     const login = async(username, password) => {
         const result = await fetch(`${usersAPI}/Login`, {
@@ -37,5 +37,5 @@ export default function AuthProvider(props) {
         <AuthContext.Provider value={this.state}>
           {this.props.children}
         </AuthContext.Provider>
-      );
+    );
 }
